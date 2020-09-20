@@ -39,8 +39,8 @@
                         </div>
 
                         <button class="btn btn-block btn-primary" type="submit">
-                            <i class="fas fa-pencil"></i>
-                            Edit
+                            <i class="fas fa-save"></i>
+                            Save
                         </button>
                     </form>
                 </div>
