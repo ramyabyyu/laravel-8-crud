@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('title', 'Create Post')
+@section('title', 'Edit Post')
 
 @section('content')
     <div class="row my-5 mx-auto">
@@ -14,30 +14,33 @@
                         </a>
                     </span>
 
-                    <h2 class="text-center pb-3">Create Post</h2>
+                    <h2 class="text-center pb-3">Edit Post</h2>
                 </div>
 
                 <div class="card-body">
-                    <form action="{{ route('posts.store') }}" method="POST">
+                    <form action="{{ route('posts.update', $post->id) }}" method="POST">
                         @csrf
+                        @method('PUT')
 
                         <div class="input-group my-3">
                             <label for="title" class="input-group-text">
                                 <strong>Title</strong>
                             </label>
-                            <input type="text" class="form-control" name="title" id="title">
+                            <input type="text" class="form-control" name="title" id="title" value="{{ $post->title }}">
                         </div>
 
                         <div class="input-group mb-3">
                             <label for="body" class="input-group-text">
                                 <strong>Body</strong>
                             </label>
-                            <textarea name="body" class="form-control" id="body" cols="5" rows="3"></textarea>
+                            <textarea name="body" class="form-control" id="body" cols="5" rows="3">
+                            {{ $post->body }}
+                            </textarea>
                         </div>
 
                         <button class="btn btn-block btn-primary" type="submit">
-                            <i class="fas fa-paper-plane"></i>
-                            Create
+                            <i class="fas fa-pencil"></i>
+                            Edit
                         </button>
                     </form>
                 </div>
